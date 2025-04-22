@@ -22,6 +22,7 @@ namespace Icony.com
                     )
             );
 
+
             //Identity
             builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
             {
