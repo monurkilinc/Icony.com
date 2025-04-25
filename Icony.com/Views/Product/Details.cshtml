@@ -1,0 +1,25 @@
+﻿@model Icony.Core.Entities.Product
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<section class="product-details spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="product__details__pic">
+                    <img src="@Model.ImageUrl" alt="@Model.Name" class="img-fluid" />
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="product__details__text">
+                    <h3>@Model.Name</h3>
+                    <p>@Model.Description</p>
+                    <h4>@Model.Price.ToString("C")</h4>
+                    <p><strong>Kategori:</strong> @Model.Category?.Name</p>
+                    <a href="#" class="primary-btn">Sepete Ekle</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
