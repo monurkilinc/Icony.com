@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Icony.Web.Controllers
 {
+    [Route("Admin/[controller]/[action]")]
     public class ProductController : Controller
     {
         private readonly AppDbContext _context;
@@ -14,10 +15,9 @@ namespace Icony.Web.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var products = await _context.Products
-                                        .Include(p => p.Category)
-                                        .ToListAsync();
-            return View(products);
+            var products = _context.Products.Include(p => p.Category).ToList();
+            return View("/Views/Admin/Product/Index.cshtml", products);
+
         }
         public IActionResult Create() => View();
 
@@ -57,7 +57,7 @@ namespace Icony.Web.Controllers
                 return NotFound();
             return View(product);
         }
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var product = await _context.Products.FindAsync(id);

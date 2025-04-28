@@ -1,0 +1,34 @@
+﻿@model Icony.Core.Entities.Product
+@{
+    ViewData["Title"] = "Ürün Güncelle";
+    Layout = "_AdminLayout";
+}
+
+<div class="container mt-4">
+    <h2>Ürün Güncelle</h2>
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <label>Ad</label>
+            <input asp-for="Name" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Fiyat</label>
+            <input asp-for="Price" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Açıklama</label>
+            <textarea asp-for="Description" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Resim Url</label>
+            <input asp-for="ImageUrl" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Kategori ID</label>
+            <input asp-for="CategoryId" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Güncelle</button>
+        <a href="/Admin/Product" class="btn btn-secondary">İptal</a>
+    </form>
+</div>

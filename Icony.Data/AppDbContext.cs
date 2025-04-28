@@ -14,6 +14,14 @@ namespace Icony.Data
         {
 
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Product>()
+                .Property(p => p.Price)
+                .HasPrecision(18, 2);
+        }
 
         public DbSet<Product> Products => Set<Product>();
         public DbSet<Category> Categories => Set<Category>();

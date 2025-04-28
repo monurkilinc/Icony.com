@@ -1,15 +1,23 @@
-﻿
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
-<html>
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>_AdminLayout</title>
+    @await Html.PartialAsync("~/Views/Shared/AdminPartials/_AdminHeadPartial.cshtml")
 </head>
-<body>
+
+<body class="g-sidenav-show bg-gray-200">
+    @await Html.PartialAsync("~/Views/Shared/AdminPartials/_AdminSidebarPartial.cshtml")
+
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+        @await Html.PartialAsync("~/Views/Shared/AdminPartials/_AdminNavbarPartial.cshtml")
+
+        @RenderBody()
+
+        @await Html.PartialAsync("~/Views/Shared/AdminPartials/_AdminFooterPartial.cshtml")
+    </main>
+
+    @await Html.PartialAsync("~/Views/Shared/AdminPartials/_AdminScriptsPartial.cshtml")
 </body>
 </html>
+@await Html.PartialAsync("~/Views/Shared/AdminPartials/_AdminScriptsPartial.cshtml")
+
+@RenderSection("Scripts", required: false)
